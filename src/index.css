@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Alfa+Slab+One&family=Anton&family=Bebas+Neue&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Cormorant+Garamond:ital,wght@1,500&display=swap');
+
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
