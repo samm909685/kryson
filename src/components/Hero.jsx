@@ -1,6 +1,6 @@
 import heroVideo from "../assets/images/hero.mp4";
 
-function Hero() {
+function Hero({ onVideoLoad }) {
   return (
     <section
       id="home"
@@ -12,6 +12,7 @@ function Hero() {
         muted
         loop
         playsInline
+        onLoadedData={onVideoLoad}
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={heroVideo} type="video/mp4" />
@@ -22,7 +23,6 @@ function Hero() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center px-6">
-
         <div className="text-center text-white max-w-4xl mt-10 sm:mt-0">
 
           {/* Heading */}
@@ -37,7 +37,6 @@ function Hero() {
           </p>
 
         </div>
-
       </div>
     </section>
   );
