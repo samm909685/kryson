@@ -30,12 +30,7 @@ function Hero({ onVideoLoad }) {
             Good Health, <br /> Better Life
           </h1>
 
-          {/* Description */}
-          <p className="text-xs sm:text-lg md:text-2xl text-gray-200 leading-relaxed max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
-            Dedicated to delivering high quality pharmaceutical solutions
-            that enhance lives and build a healthier tomorrow.
-          </p>
-
+        
         </div>
       </div>
     </section>

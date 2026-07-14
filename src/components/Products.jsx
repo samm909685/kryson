@@ -96,27 +96,32 @@ function Products() {
               className="bg-white p-4 md:p-8 rounded-2xl shadow-md hover:shadow-xl transition"
             >
               <h3
-                className={`${product.color} leading-tight break-words`}
+                className={`${product.color} ${
+  product.name.includes("TREMONCET")
+    ? "font-bold text-[18px] sm:text-[22px]"
+    : product.name.includes("STILLER")
+    ? "font-bold text-[20px] sm:text-[24px]"
+    : product.name.includes("SIDI")
+    ? "text-[28px] sm:text-[32px]"
+    : "break-words text-[22px]"
+}`}
                 style={{
                   fontFamily:
-                    product.name.includes("MOXIKALP")
-                      ? "Archivo Black"
-                      : product.name.includes("TREMONCET")
-                      ? "Alfa Slab One"
-                      : product.name.includes("SIDI")
-                      ? "Bebas Neue"
-                      : product.name.includes("STILLER")
-                      ? "Anton"
-                      : "Playfair Display",
-
-                  fontSize:
-                    product.name.includes("SIDI")
-                      ? "32px"
-                      : product.name.includes("STILLER")
-                      ? "24px"
-                      : product.name === "Omix-oz"
-                      ? "24px"
-                      : "22px",
+  window.innerWidth < 640
+    ? product.name.includes("MOXIKALP")
+      ? "Archivo Black"
+      : product.name.includes("SIDI")
+      ? "Bebas Neue"
+      : "Arial"
+    : product.name.includes("MOXIKALP")
+    ? "Archivo Black"
+    : product.name.includes("TREMONCET")
+    ? "Alfa Slab One"
+    : product.name.includes("SIDI")
+    ? "Bebas Neue"
+    : product.name.includes("STILLER")
+    ? "Anton"
+    : "Playfair Display",
 
                   fontWeight:
                     product.name.includes("SIDI") ? "400" : "900",
@@ -125,9 +130,16 @@ function Products() {
                     product.name.includes("SIDI") ? "2px" : "0px",
 
                   textTransform:
-                    product.name === "Omix-oz" ? "none" : "uppercase",
+                    product.name === "Omix-oz"
+                      ? "none"
+                      : "uppercase",
 
-                  lineHeight: "1",
+                  lineHeight:
+                    product.name.includes("TREMONCET")
+                      ? "1.25"
+                      : product.name.includes("STILLER")
+                      ? "1.2"
+                      : "1",
                 }}
               >
                 {product.name}

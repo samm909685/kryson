@@ -28,7 +28,7 @@ Message:
 ${form.message}
     `;
 
-    window.location.href = `mailto:info@krysonlifescience.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:kryson.life@gmail.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
   };
@@ -54,8 +54,8 @@ ${form.message}
           <div className="bg-white p-6 rounded-2xl shadow-lg flex gap-4 items-start">
             <Mail className="text-blue-700" size={28} />
             <div>
-              <h3 className="font-semibold text-xl text-blue-900">Email</h3>
-              <p className="text-gray-600">info@krysonlifescience.com</p>
+              <h3 className="font-semibold text-xl text-blue-900"><p className="text-gray-600">kryson.life@gmail.com</p>Email</h3>
+              
             </div>
           </div>
 
