@@ -140,24 +140,25 @@ function Products() {
         : "1",
   }}
 >
-  {product.name}
+{product.name}
 
-  {product.extra && (
-    <span
-      className={`${product.extraColor} block mt-2`}
-      style={{
-        fontSize: "16px",
-        fontFamily: "Playfair Display",
-        fontStyle:
-          product.extraStyle === "italic"
-            ? "italic"
-            : "normal",
-        fontWeight: "700",
-      }}
-    >
-      {product.extra}
-    </span>
-  )}
+{product.extra && (
+  <span
+    className={`${product.extraColor} ml-2 whitespace-nowrap`}
+    style={{
+      fontSize: "16px",
+      fontFamily: "Playfair Display",
+      fontStyle:
+        product.extraStyle === "italic"
+          ? "italic"
+          : "normal",
+      fontWeight: "700",
+      textTransform: "uppercase",
+    }}
+  >
+    {product.extra}
+  </span>
+)}
 </h3>
 
               <p className="text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 mt-2 mb-2">
