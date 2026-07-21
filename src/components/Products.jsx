@@ -96,71 +96,69 @@ function Products() {
               className="bg-white p-4 md:p-8 rounded-2xl shadow-md hover:shadow-xl transition"
             >
               <h3
-                className={`${product.color} ${
-  product.name.includes("TREMONCET")
-    ? "font-bold text-[18px] sm:text-[22px]"
-    : product.name.includes("STILLER")
-    ? "font-bold text-[20px] sm:text-[24px]"
-    : product.name.includes("SIDI")
-    ? "text-[28px] sm:text-[32px]"
-    : "break-words text-[22px]"
-}`}
-                style={{
-                  fontFamily:
-  window.innerWidth < 640
-    ? product.name.includes("MOXIKALP")
-      ? "Archivo Black"
+  className={`${product.color} ${
+    product.name.includes("MOXIKALP")
+      ? "font-bold whitespace-nowrap text-[16px] sm:text-[22px]"
+      : product.name.includes("TREMONCET")
+      ? "font-bold whitespace-nowrap text-[16px] sm:text-[22px]"
+      : product.name.includes("STILLER")
+      ? "font-bold text-[20px] sm:text-[24px]"
       : product.name.includes("SIDI")
-      ? "Bebas Neue"
-      : "Arial"
-    : product.name.includes("MOXIKALP")
-    ? "Archivo Black"
-    : product.name.includes("TREMONCET")
-    ? "Alfa Slab One"
-    : product.name.includes("SIDI")
-    ? "Bebas Neue"
-    : product.name.includes("STILLER")
-    ? "Anton"
-    : "Playfair Display",
+      ? "text-[28px] sm:text-[32px]"
+      : "break-words text-[22px]"
+  }`}
+  style={{
+    fontFamily:
+      window.innerWidth < 640
+        ? product.name.includes("MOXIKALP")
+          ? "Archivo Black"
+          : product.name.includes("SIDI")
+          ? "Bebas Neue"
+          : "Arial"
+        : product.name.includes("MOXIKALP")
+        ? "Archivo Black"
+        : product.name.includes("TREMONCET")
+        ? "Alfa Slab One"
+        : product.name.includes("SIDI")
+        ? "Bebas Neue"
+        : product.name.includes("STILLER")
+        ? "Anton"
+        : "Playfair Display",
 
-                  fontWeight:
-                    product.name.includes("SIDI") ? "400" : "900",
+    fontWeight: product.name.includes("SIDI") ? "400" : "900",
 
-                  letterSpacing:
-                    product.name.includes("SIDI") ? "2px" : "0px",
+    letterSpacing: product.name.includes("SIDI") ? "2px" : "0px",
 
-                  textTransform:
-                    product.name === "Omix-oz"
-                      ? "none"
-                      : "uppercase",
+    textTransform:
+      product.name === "Omix-oz" ? "none" : "uppercase",
 
-                  lineHeight:
-                    product.name.includes("TREMONCET")
-                      ? "1.25"
-                      : product.name.includes("STILLER")
-                      ? "1.2"
-                      : "1",
-                }}
-              >
-                {product.name}
+    lineHeight:
+      product.name.includes("TREMONCET")
+        ? "1.25"
+        : product.name.includes("STILLER")
+        ? "1.2"
+        : "1",
+  }}
+>
+  {product.name}
 
-                {product.extra && (
-                  <span
-                    className={`${product.extraColor} block mt-2`}
-                    style={{
-                      fontSize: "16px",
-                      fontFamily: "Playfair Display",
-                      fontStyle:
-                        product.extraStyle === "italic"
-                          ? "italic"
-                          : "normal",
-                      fontWeight: "700",
-                    }}
-                  >
-                    {product.extra}
-                  </span>
-                )}
-              </h3>
+  {product.extra && (
+    <span
+      className={`${product.extraColor} block mt-2`}
+      style={{
+        fontSize: "16px",
+        fontFamily: "Playfair Display",
+        fontStyle:
+          product.extraStyle === "italic"
+            ? "italic"
+            : "normal",
+        fontWeight: "700",
+      }}
+    >
+      {product.extra}
+    </span>
+  )}
+</h3>
 
               <p className="text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 mt-2 mb-2">
                 {product.category}

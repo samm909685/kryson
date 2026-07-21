@@ -26,10 +26,16 @@ function Hero({ onVideoLoad }) {
         <div className="text-center text-white max-w-4xl mt-10 sm:mt-0">
 
           {/* Heading */}
-          <h1 className="text-2xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4">
-            Good Health, <br /> Better Life
-          </h1>
+         <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+  Good Health,
+  <br />
+  Better Life
+</h1>
 
+<p className="mt-4 text-sm sm:text-lg md:text-2xl text-gray-200 leading-relaxed max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
+  Dedicated to delivering high quality pharmaceutical solutions
+  that enhance lives and build a healthier tomorrow.
+</p>
         
         </div>
       </div>
