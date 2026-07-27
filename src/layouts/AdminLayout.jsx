@@ -1,21 +1,25 @@
+import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 
 export default function AdminLayout({ children }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen bg-gray-100">
 
-      {/* Sidebar */}
-      <Sidebar />
+      <Sidebar
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
 
-      {/* Main Area */}
       <div className="flex-1 flex flex-col">
 
-        {/* Top Navigation */}
-        <Topbar />
+        <Topbar
+          setSidebarOpen={setSidebarOpen}
+        />
 
-        {/* Page Content */}
-        <main className="flex-1 p-8 overflow-y-auto">
+        <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-y-auto">
           {children}
         </main>
 
