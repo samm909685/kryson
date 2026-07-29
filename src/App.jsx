@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import AdminLogin from "./components/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -11,7 +10,7 @@ import Settings from "./pages/Settings";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         {/* Portfolio */}
         <Route path="/" element={<Home />} />
@@ -25,7 +24,7 @@ function App() {
         <Route path="/admin/scan-history" element={<ScanHistory />} />
         <Route path="/admin/settings" element={<Settings />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
