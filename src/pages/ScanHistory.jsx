@@ -7,7 +7,7 @@ export default function ScanHistory() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/medicines/scan-history")
+    fetch("https://api.kryson.in/api/medicines/scan-history")
       .then((res) => res.json())
       .then((data) => setHistory(data))
       .catch((err) => console.log(err));
@@ -22,12 +22,12 @@ const clearHistory = async () => {
 
   try {
 
-    await fetch(
-      "http://localhost:5000/api/medicines/scan-history",
-      {
-        method: "DELETE",
-      }
-    );
+   await fetch(
+  "https://api.kryson.in/api/medicines/scan-history",
+  {
+    method: "DELETE",
+  }
+);
 
     setHistory([]);
 

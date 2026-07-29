@@ -40,9 +40,8 @@ const [editMedicine, setEditMedicine] = useState({
   const fetchMedicines = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/medicines"
-      );
-
+  "https://api.kryson.in/api/medicines"
+);
       const data = await response.json();
       setMedicines(data);
     } catch (error) {
@@ -60,7 +59,7 @@ const [editMedicine, setEditMedicine] = useState({
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/medicines/${id}`,
+        `https://api.kryson.in/api/medicines/${id}`,
         {
           method: "DELETE",
         }
@@ -92,7 +91,7 @@ const openEditModal = (medicine) => {
 const updateMedicine = async () => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/medicines/${editMedicine.id}`,
+      `https://api.kryson.in/api/medicines/${editMedicine.id}`,
       {
         method: "PUT",
         headers: {
@@ -386,7 +385,7 @@ const downloadQR = () => {
 
       <QRCodeCanvas
   id="medicineQR"
-  value={`http://localhost:5173/verify/${selectedMedicine.verification_token}`}
+  value={`https://kryson.in/#/verify/${selectedMedicine.verification_token}`}
   size={220}
 />
 

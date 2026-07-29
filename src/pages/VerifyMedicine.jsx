@@ -14,9 +14,9 @@ export default function VerifyMedicine() {
 
   const fetchMedicine = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/medicines/verify/${token}`
-      );
+     const response = await fetch(
+  `https://api.kryson.in/api/medicines/verify/${token}`
+);
 
       const data = await response.json();
 

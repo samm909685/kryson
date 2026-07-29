@@ -15,7 +15,7 @@ export default function DashboardCards() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/medicines/dashboard/stats")
+    fetch("https://api.kryson.in/api/medicines/dashboard/stats")
       .then((res) => res.json())
       .then((data) => {
         setStats(data);
