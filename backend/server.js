@@ -13,14 +13,16 @@ app.use(cors());
 app.use(express.json());
 
 // Test Route
-app.get("/", async (req, res) => {
+app.get("/api/health", async (req, res) => {
   try {
     await pool.query("SELECT 1");
     res.json({
-      message: "✅ Kryson Backend Connected to MySQL",
+      status: "OK",
+      message: "Backend Connected",
     });
   } catch (err) {
     res.status(500).json({
+      status: "ERROR",
       message: "Database Connection Failed",
     });
   }
