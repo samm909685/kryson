@@ -8,9 +8,17 @@ import {
   X,
 } from "lucide-react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
+  const navigate = useNavigate();
+
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("admin");
+
+  navigate("/admin");
+};
   const menuItems = [
     {
       icon: <LayoutDashboard size={20} />,
@@ -112,10 +120,13 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
         {/* Logout */}
         <div className="p-5 border-t border-slate-700">
-          <button className="w-full flex items-center justify-center gap-3 py-3 rounded-xl bg-red-500 hover:bg-red-600">
-            <LogOut size={20} />
-            Logout
-          </button>
+          <button
+  onClick={handleLogout}
+  className="w-full flex items-center justify-center gap-3 py-3 rounded-xl bg-red-500 hover:bg-red-600"
+>
+  <LogOut size={20} />
+  Logout
+</button>
         </div>
       </aside>
     </>
