@@ -25,7 +25,7 @@ export const loginAdmin = async (req, res) => {
         message: "Invalid Password",
       });
     }
-
+console.log("JWT_SECRET =", process.env.JWT_SECRET);
  const token = jwt.sign(
   {
     id: admin.id,
