@@ -1,4 +1,5 @@
 import pool from "../config/db.js";
+import jwt from "jsonwebtoken";
 
 export const loginAdmin = async (req, res) => {
   try {
@@ -25,15 +26,27 @@ export const loginAdmin = async (req, res) => {
       });
     }
 
-    res.json({
-      success: true,
-      message: "Login Successful",
-      admin: {
-        id: admin.id,
-        name: admin.name,
-        email: admin.email,
-      },
-    });
+ const token = jwt.sign(
+  {
+    id: admin.id,
+    email: admin.email,
+  },
+  process.env.JWT_SECRET,
+  {
+    expiresIn: "24h",
+  }
+);
+
+res.json({
+  success: true,
+  message: "Login Successful",
+  token,
+  admin: {
+    id: admin.id,
+    name: admin.name,
+    email: admin.email,
+  },
+});
   } catch (error) {
   console.error("LOGIN ERROR:", error);
 
