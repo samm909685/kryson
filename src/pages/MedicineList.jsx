@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Trash2 , Pencil} from "lucide-react";
 import AdminLayout from "../layouts/AdminLayout";
 import { QRCodeCanvas } from "qrcode.react";
+import { jsPDF } from "jspdf";
 
 export default function MedicineList() {
   const [medicines, setMedicines] = useState([]);
@@ -116,20 +117,24 @@ const downloadQR = () => {
 
   if (!canvas) return;
 
-  const pngUrl = canvas
-    .toDataURL("image/png")
-    .replace("image/png", "image/octet-stream");
+  const imgData = canvas.toDataURL("image/png");
 
-  const downloadLink = document.createElement("a");
+  const pdf = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: "a4",
+  });
 
-  downloadLink.href = pngUrl;
-  downloadLink.download = `${selectedMedicine.product_name}_QR.png`;
+  // QR size
+  const qrSize = 170;
 
-  document.body.appendChild(downloadLink);
+  // Center QR on A4 page
+  const x = (210 - qrSize) / 2;
+  const y = (297 - qrSize) / 2;
 
-  downloadLink.click();
+  pdf.addImage(imgData, "PNG", x, y, qrSize, qrSize);
 
-  document.body.removeChild(downloadLink);
+  pdf.save(`${selectedMedicine.product_name}_QR.pdf`);
 };
   return (
     <AdminLayout>
