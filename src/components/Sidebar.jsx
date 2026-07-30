@@ -7,6 +7,7 @@ import {
   LogOut,
   X,
 } from "lucide-react";
+import logo from "../assets/logo.JPG";
 
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -59,12 +60,12 @@ const handleLogout = () => {
 
       <aside
         className={`
-          fixed lg:static
-          top-0 left-0
-          h-screen
-          w-72
-          bg-gradient-to-b from-slate-900 to-slate-800
-          text-white
+  fixed lg:static
+  top-0 left-0
+  h-screen
+  w-72
+  bg-white
+  text-gray-800
           flex flex-col
           shadow-2xl
           z-50
@@ -85,17 +86,13 @@ const handleLogout = () => {
         </div>
 
         {/* Logo */}
-        <div className="h-24 flex items-center justify-center border-b border-slate-700">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold">
-              KRYSON
-            </h1>
-
-            <p className="text-sm text-slate-300">
-              Life Science
-            </p>
-          </div>
-        </div>
+        <div className="h-24 flex items-center justify-center border-b border-gray-200 bg-white">
+  <img
+    src={logo}
+    alt="Kryson Logo"
+    className="h-14 object-contain"
+  />
+</div>
 
         {/* Menu */}
         <nav className="flex-1 mt-8">
@@ -108,7 +105,7 @@ const handleLogout = () => {
                 `mx-4 mb-3 flex items-center gap-4 px-5 py-4 rounded-xl transition ${
                   isActive
                     ? "bg-blue-600"
-                    : "hover:bg-slate-700"
+                    : "hover:bg-blue-50 hover:text-blue-600"
                 }`
               }
             >
@@ -119,7 +116,7 @@ const handleLogout = () => {
         </nav>
 
         {/* Logout */}
-        <div className="p-5 border-t border-slate-700">
+        <div className="p-5 border-t border-gray-200">
           <button
   onClick={handleLogout}
   className="w-full flex items-center justify-center gap-3 py-3 rounded-xl bg-red-500 hover:bg-red-600"
