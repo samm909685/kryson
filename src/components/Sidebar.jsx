@@ -89,7 +89,7 @@ const handleLogout = () => {
   <img
     src={logo}
     alt="Kryson Logo"
-    className="h-14 object-contain"
+    className="h-32 object-contain"
   />
 </div>
 
