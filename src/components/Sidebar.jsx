@@ -7,8 +7,7 @@ import {
   LogOut,
   X,
 } from "lucide-react";
-import logo from "../assets/logo.JPG";
-
+import logo from "../assets/images/logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
