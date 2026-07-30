@@ -23,11 +23,13 @@ export default function AddMedicine() {
     e.preventDefault();
 
     try {
+      const token = localStorage.getItem("token");
       const response = await fetch("https://api.kryson.in/api/medicines", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-        },
+  "Content-Type": "application/json",
+  Authorization: `Bearer ${token}`,
+},
         body: JSON.stringify(form),
       });
 

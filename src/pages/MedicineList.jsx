@@ -4,6 +4,7 @@ import AdminLayout from "../layouts/AdminLayout";
 import { QRCodeCanvas } from "qrcode.react";
 import { jsPDF } from "jspdf";
 
+
 export default function MedicineList() {
   const [medicines, setMedicines] = useState([]);
   const [search, setSearch] = useState("");
@@ -38,17 +39,25 @@ const [editMedicine, setEditMedicine] = useState({
     fetchMedicines();
   }, []);
 
-  const fetchMedicines = async () => {
-    try {
-      const response = await fetch(
-  "https://api.kryson.in/api/medicines"
-);
-      const data = await response.json();
-      setMedicines(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ const fetchMedicines = async () => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(
+      "https://api.kryson.in/api/medicines",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const data = await response.json();
+    setMedicines(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   const deleteMedicine = async (id) => {
     
@@ -63,6 +72,9 @@ const [editMedicine, setEditMedicine] = useState({
         `https://api.kryson.in/api/medicines/${id}`,
         {
           method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         }
       );
 
@@ -91,12 +103,15 @@ const openEditModal = (medicine) => {
 
 const updateMedicine = async () => {
   try {
+    const token = localStorage.getItem("token");
+
     const response = await fetch(
       `https://api.kryson.in/api/medicines/${editMedicine.id}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(editMedicine),
       }

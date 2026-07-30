@@ -1,4 +1,5 @@
 import express from "express";
+import authMiddleware from "../middleware/authMiddleware.js";
 import {
   addMedicine,
   getMedicines,
@@ -16,21 +17,21 @@ const router = express.Router();
 // ==========================
 // ADD MEDICINE
 // ==========================
-router.post("/", addMedicine);
+router.post("/", authMiddleware, addMedicine);
 
 router.get("/verify/:token", verifyMedicine);
 
-router.get("/dashboard/stats", getDashboardStats);
+router.get("/dashboard/stats", authMiddleware, getDashboardStats);
 
-router.get("/scan-history", getScanHistory);
+router.get("/scan-history", authMiddleware, getScanHistory);
 
-router.delete("/scan-history", clearScanHistory);
+router.delete("/scan-history", authMiddleware, clearScanHistory);
 
-router.get("/", getMedicines);
+router.get("/", authMiddleware, getMedicines);
 
-router.get("/:id", getMedicineById);
+router.get("/:id", authMiddleware, getMedicineById);
 
-router.put("/:id", updateMedicine);
+router.put("/:id", authMiddleware, updateMedicine);
 
-router.delete("/:id", deleteMedicine);
+router.delete("/:id", authMiddleware, deleteMedicine);
 export default router;

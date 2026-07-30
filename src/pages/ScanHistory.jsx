@@ -6,12 +6,18 @@ export default function ScanHistory() {
   const [history, setHistory] = useState([]);
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    fetch("https://api.kryson.in/api/medicines/scan-history")
-      .then((res) => res.json())
-      .then((data) => setHistory(data))
-      .catch((err) => console.log(err));
-  }, []);
+ useEffect(() => {
+  const token = localStorage.getItem("token");
+
+  fetch("https://api.kryson.in/api/medicines/scan-history", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => setHistory(data))
+    .catch((err) => console.log(err));
+}, []);
 const clearHistory = async () => {
 
   const confirmDelete = window.confirm(
@@ -22,13 +28,17 @@ const clearHistory = async () => {
 
   try {
 
-   await fetch(
+   const token = localStorage.getItem("token");
+
+await fetch(
   "https://api.kryson.in/api/medicines/scan-history",
   {
     method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   }
 );
-
     setHistory([]);
 
     alert("Scan history cleared successfully");

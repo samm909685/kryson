@@ -30,7 +30,7 @@ const [loading, setLoading] = useState(false);
 
       if (data.success) {
         alert("Login Successful");
-
+        localStorage.setItem("token", data.token);
         localStorage.setItem("admin", JSON.stringify(data.admin));
 
         navigate("/admin/dashboard");

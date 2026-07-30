@@ -15,13 +15,19 @@ export default function DashboardCards() {
   });
 
   useEffect(() => {
-    fetch("https://api.kryson.in/api/medicines/dashboard/stats")
-      .then((res) => res.json())
-      .then((data) => {
-        setStats(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const token = localStorage.getItem("token");
+
+  fetch("https://api.kryson.in/api/medicines/dashboard/stats", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      setStats(data);
+    })
+    .catch((err) => console.log(err));
+}, []);
 
   const cards = [
     {
