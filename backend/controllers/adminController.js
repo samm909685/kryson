@@ -1,5 +1,6 @@
 import pool from "../config/db.js";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 export const loginAdmin = async (req, res) => {
   try {
@@ -19,13 +20,14 @@ export const loginAdmin = async (req, res) => {
 
     const admin = rows[0];
 
-    if (admin.password !== password) {
-      return res.status(401).json({
-        success: false,
-        message: "Invalid Password",
-      });
-    }
-console.log("JWT_SECRET =", process.env.JWT_SECRET);
+   const isMatch = await bcrypt.compare(password, admin.password);
+
+if (!isMatch) {
+  return res.status(401).json({
+    success: false,
+    message: "Invalid Password",
+  });
+}
  const token = jwt.sign(
   {
     id: admin.id,
