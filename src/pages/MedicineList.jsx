@@ -405,7 +405,7 @@ const downloadQR = () => {
 
       <QRCodeCanvas
   id="medicineQR"
-  value={`https://kryson.in/#/verify/${selectedMedicine.verification_token}`}
+  value={`https://kryson.in/verify/${selectedMedicine.verification_token}`}
   size={220}
 />
 
